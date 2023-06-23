@@ -7,7 +7,7 @@ export default function SearchBar() {
 
   // animation if input is clicked
   const [shown, setShown] = useState(false);
-  const classes = `${shown && styles.searchShown} ${styles.search}`; // get all classes for search bar
+  const classes = `${shown ? styles.searchShown: ''} ${styles.search}`; // get all classes for search bar
 
   return (
     <div className={classes}>
@@ -59,22 +59,24 @@ function SearchResults({shown, value}) {
   // check if results should be shown
   let isShown = false;
   if (shown && foundArr.length > 0) isShown = true; // if input is focused and there are results, show result block
-
-  const classes = `${isShown && styles.searchResultsShown} ${styles.searchResults}`; // get all classes for search results
    
-  return (
-    <div className={classes}>
+  // if there are search results
+  if (isShown) return (
+    <div className={styles.searchResults}>
       {foundArr.map(match =>
-        <div key={match} className={styles.searchResultsItem}>
-          {match}
-        </div>
+        <a href='/' key={match}>
+          <div className={styles.searchResultsItem}>
+            <span>{match}</span>
+          </div>
+        </a>
       )}
 
+      <a href='/'>
         <div key='see-more' className={styles.searchResultsItem}>
-          Посмотреть все
+          <span>Посмотреть все</span>
         </div>
-
-      </div>
+      </a>
+    </div>
   )
 
 

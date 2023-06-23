@@ -4,7 +4,7 @@ import styles from './../Header.module.css';
 export default function Info() {
   return (
     <div className={styles.info}>
-      <span title='О нас'>i</span>
+      <a href='/' title='О нас'>i</a>
     </div>
   )
 }

@@ -5,14 +5,14 @@ export default function Logo() {
   const logoSvgSize = 50; //svg size in px
   
   return (
-    <div className={styles.logo}>
+    <a href='/' className={styles.logo}>
       <LogoSvg size={logoSvgSize}/>
 
       <LogoText>
         <h1>MisMaksab</h1>
         <h6>скидки в магазинах Эстонии</h6>
       </LogoText>
-    </div>
+    </a>
   )
 }
 

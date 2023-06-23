@@ -14,7 +14,7 @@
     box-shadow: 0px 0px 4px 5px rgba(0,0,0,.04);
 }
 
-.yellow {
+.yellow{
     background: #EAD700;
-    color: #373F41;
+    color: #373F41 !important;
 }

@@ -18,9 +18,7 @@ export default function Language() {
     <div ref={wrapperRef} className={styles.language}>
       <ActiveLanguage onClick={() => setActiveSelection(!activeSelection)} selection={activeSelection} current={current}/>
       
-      {activeSelection &&
-        <AllLanguages languages={languages}/>
-      }
+      <AllLanguages languages={languages} active={activeSelection}/>
     </div>
   )
 }
@@ -30,7 +28,7 @@ function ActiveLanguage({onClick, selection, current}) {
     <div className={styles.languageCurrent} onClick={onClick}>
       <span>{current}</span>
 
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={selection ? styles.rotate : undefined}>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={selection ? styles.rotate : ''}>
       <g id="icon small arrows">
       <g id="arrow-circle-left">
       <path id="Vector" d="M18.9577 9.9987C18.9577 14.9404 14.941 18.957 9.99935 18.957C5.05768 18.957 1.04102 14.9404 1.04102 9.9987C1.04102 5.05703 5.05768 1.04037 9.99935 1.04037C14.941 1.04037 18.9577 5.05703 18.9577 9.9987ZM2.29102 9.9987C2.29102 14.2487 5.74935 17.707 9.99935 17.707C14.2493 17.707 17.7077 14.2487 17.7077 9.9987C17.7077 5.7487 14.2493 2.29037 9.99935 2.29037C5.74935 2.29037 2.29102 5.7487 2.29102 9.9987Z" fill="#373F41"/>
@@ -42,13 +40,17 @@ function ActiveLanguage({onClick, selection, current}) {
   )
 }
 
-function AllLanguages({languages}) {
+function AllLanguages({languages, active}) {
+  const classes = `${active ? styles.languageAllActive: ''} ${styles.languageAll}`; // get classes for all languages block
+
   return (
-    <div className={styles.languageAll}>
+    <div className={classes}>
       {languages.map(lang =>
-        <div key={lang}>
-          <span>{lang}</span>
-        </div>
+        <a key={lang} href='/'>
+          <div>
+            {lang}
+          </div>
+        </a>
       )}
     </div>
   )
