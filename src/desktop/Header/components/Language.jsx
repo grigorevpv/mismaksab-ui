@@ -68,4 +68,4 @@ function useOutsideClick(ref, callback) {
     // Bind the event listener
     document.addEventListener("click", handleClickOutside);
   }, [ref]);
-}
+ }
