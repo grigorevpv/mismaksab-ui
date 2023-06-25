@@ -8,13 +8,13 @@
     font-size: 20px;
     display: inline-block;
     height: 44px;
-}
 
-.button:hover {
-    box-shadow: 0px 0px 4px 5px rgba(0,0,0,.04);
-}
+    &:hover {
+        box-shadow: 0px 0px 4px 5px rgba(0,0,0,.04);
+    }
 
-.yellow{
-    background: #EAD700;
-    color: #373F41 !important;
+    &.yellow{
+        background: #EAD700;
+        color: #373F41;
+    }
 }

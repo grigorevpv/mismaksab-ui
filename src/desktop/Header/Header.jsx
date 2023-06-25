@@ -5,7 +5,7 @@ import Language from './components/Language'
 import MyListButton from './components/MyListButton'
 import SearchBar from './components/SearchBar'
 
-import styles from './Header.module.css' //tsx не работают стили!!!
+import styles from './scss/Header.module.css' //tsx не работают стили!!!
 
 export function Header() {
   return (
