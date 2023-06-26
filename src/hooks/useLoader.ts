@@ -1,14 +1,16 @@
 import { useState } from "react";
 
 // get search matches function
-export default function useFetch(callback: Function) {
+export default function useLoader(callback: Function, fnAction = 'execute',) {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const fetching = async () => {
+    const fetching = async (...args) => {
       try {
         setIsLoading(true);
-        await callback();
+        const fn = await callback(...args);
+        if (fnAction === 'return') return fn; // if second argument is RETURN then callback will be returned
+        return 
       }
       catch(e) {
         setError(e.message);

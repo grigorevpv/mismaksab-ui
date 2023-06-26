@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState, useCallback} from 'react';
 import styles from './../scss/Header.module.css';
 import languageSvg from './../../../assets/icons/language.svg';
 import classnames from 'classnames';
@@ -17,10 +17,15 @@ export default function Language() {
     () => setActiveSelection(false) // callback function
   );
 
+  // set active language callback
+  const setActiveCallback = useCallback(() => {
+    setActiveSelection(!activeSelection);
+  }, [activeSelection]);
+
   return (
     <div ref={wrapperRef} className={styles.language}>
       <ActiveLanguage
-        onClick={() => setActiveSelection(!activeSelection)}
+        onClick={setActiveCallback} //useCallback
         selection={activeSelection}
         current={current}
       />

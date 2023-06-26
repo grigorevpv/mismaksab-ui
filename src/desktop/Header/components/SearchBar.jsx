@@ -8,11 +8,8 @@ import debounce from "lodash" // не получилось
 import commonStyles from './../../../scss/common.module.css';
 
 // fetch hook
-import useFetch from '../../../hooks/useFetch';
-
-// match search results util
-import matchSearch from '../../../utils/matchSearch';
-
+import useLoader from '../../../hooks/useLoader';
+import SearchService from '../../../API/SearchService';
 
 export default function SearchBar() {
   const [value, setValue] = useState('');
@@ -22,14 +19,21 @@ export default function SearchBar() {
   const [shown, setShown] = useState(false);
 
   // custom fetch hook
-  const [fetchFn, isMathesLoading, matchError] = useFetch(async() => {
-     await matchSearch(setSearchResults, value);
-  })
+  const [fetchFn, isMathesLoading, matchError] = useLoader(async(inputVal) => {
+    const res = await SearchService.getMatches(inputVal);
+    return res.data;
+  }, 'return');
 
   // when input value changes, get and set new search matches
   useEffect(() => {
-    fetchFn();
-  }, [value])
+    (async function () {
+      const trimValue = value.trim();
+      let result = [];
+
+      if (trimValue !== '') result = await fetchFn(trimValue); // trimValue will be passed as inputVal in fetchFn callback
+      setSearchResults(result);
+    })();
+  }, [value]);
 
   return (
     <div className={classnames(styles.search, {
