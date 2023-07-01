@@ -28,4 +28,4 @@ $RECYCLE.BIN/
 
 # Misc
 node_modules/
-dist/
+lib/
