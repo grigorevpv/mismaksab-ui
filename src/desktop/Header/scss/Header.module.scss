@@ -2,6 +2,7 @@
 
 $borderColor: #D9D9D9; // default border color
 $greyColor: #373F41; //default text color
+$lightBlueColor: rgb(90, 194, 233); //light blue color for navbar
 
 * {
     box-sizing: border-box;
@@ -88,6 +89,10 @@ input {
     transition: .2s;
     height: 42px;
 
+    &:hover {
+        box-shadow: 0px 0px 8px 0px rgba($lightBlueColor, 0.80);
+    }
+
     // search error
     &Error {
         font-weight: 600;
@@ -95,11 +100,6 @@ input {
         padding: 20px;
     }
 
-    // active class
-    &.shown {
-        box-shadow: 0px 0px 4px 5px rgba(0,0,0,.04);
-    }
-    
     // svg
     &Svg {
         padding: 17px 11px 12px 27px;
@@ -111,6 +111,7 @@ input {
         align-items: center;
         overflow: hidden;
         border-radius: 10px;
+        transition: .3s;
         
         input {
             font-size: 1.4em;
@@ -157,7 +158,8 @@ input {
 
 /* info button */
 .info {
-    padding: 0 20px;
+    padding: 10px 20px;
+    position: relative;
 
     &Text {
         border-radius:50%;
@@ -169,6 +171,33 @@ input {
         width: 20px;
         height: 20px;
         align-self:flex-start;
+        cursor: pointer;
+
+        &:hover {
+            color: $lightBlueColor;
+            border-color:$lightBlueColor;
+        }
+    }
+
+    &Block {
+        position: absolute;
+        top:calc(100%);
+        right:0;
+        padding: 33px 40px;
+        width: 450px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.20);
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: .3s;
+
+        &.shown {
+            opacity: 1;
+            transform: translateY(0px);
+            pointer-events: auto;
+        }
     }
 }
 
@@ -227,8 +256,9 @@ input {
             padding: 5px;
             border-bottom:1px solid $borderColor;
             transition: .3s;
+
             
-            &:hover {
+            &:hover, &Active{
                 background: $borderColor;
             }
 
