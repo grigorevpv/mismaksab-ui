@@ -13,11 +13,11 @@
   "author": "Pavel Grigorev (grigorevpv@gmail.com)",
   "license": "ISC",
   "private": false,
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
   "homepage": "https://grigorevpv.github.io/mismaksab-ui",
   "bugs": {
@@ -48,11 +48,16 @@
     "@types/react": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.8.1",
+    "css-modules-typescript-loader": "^4.0.1",
     "eslint": "^8.39.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.11",
     "gh-pages": "^5.0.0",
+    "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.23",
+    "postcss-loader": "^7.3.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -61,7 +66,11 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
     "storybook": "^7.0.7",
-    "typescript": "^5.0.4"
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4"
   },
   "peerDependencies": {
     "react": "^18.2.0"
