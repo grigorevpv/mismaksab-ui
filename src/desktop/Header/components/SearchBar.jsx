@@ -19,20 +19,15 @@ export default function SearchBar() {
   const [shown, setShown] = useState(false);
 
   // custom fetch hook
-  const [fetchFn, isMathesLoading, matchError] = useLoader(async(inputVal) => {
-    const res = await SearchService.getMatches(inputVal);
-    return res.data;
-  }, 'return');
+  const [isMathesLoading, matchError] = useLoader(async() => {
+    const trimValue = value.trim();
+    let result = [];
 
-  // when input value changes, get and set new search matches
-  useEffect(() => {
-    (async function () {
-      const trimValue = value.trim();
-      let result = [];
-
-      if (trimValue !== '') result = await fetchFn(trimValue); // trimValue will be passed as inputVal in fetchFn callback
-      setSearchResults(result);
-    })();
+    if (trimValue !== '') {
+      const ajaxResult = await SearchService.getMatches(trimValue);
+      result = ajaxResult.data;
+    }
+    setSearchResults(result);
   }, [value]);
 
   return (

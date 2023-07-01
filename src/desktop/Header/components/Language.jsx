@@ -4,7 +4,7 @@ import languageSvg from './../../../assets/icons/language.svg';
 import classnames from 'classnames';
 import useOutsideClick from '../../../hooks/useOutsideClick';
 
-const LANGUAGES = ['rus', 'est', 'en'];
+const LANGUAGES = ['rus', 'est', 'eng'];
 
 export default function Language() {
   const current = LANGUAGES[0];
@@ -33,6 +33,7 @@ export default function Language() {
       <AllLanguages
         languages={LANGUAGES}
         active={activeSelection}
+        current={current}
       />
     </div>
   )
@@ -52,15 +53,19 @@ function ActiveLanguage({onClick, selection, current}) {
   )
 }
 
-function AllLanguages({languages, active}) {
+function AllLanguages({languages, active, current}) {
+  const languagesOrder = Array.from(new Set([current, ...languages]));
+
   return (
     <div className={classnames(styles.languageAll, {
       [styles.shown]: active
     })}>
 
-      {languages.map(lang =>
+      {languagesOrder.map(lang =>
         <a key={lang} href='/'>
-          <div className={styles.languageAllLang}>
+          <div className={classnames(styles.languageAllLang, {
+            [styles.languageAllLangActive]: lang === current
+          })}>
             {lang}
           </div>
         </a>

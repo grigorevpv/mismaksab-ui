@@ -16,7 +16,7 @@ export function Header() {
         <div className={styles.navBarControls}>
           <SearchBar/>
           <MyListButton/>
-          <Info/>
+          <Info infoText='Вы можете добавить любой товар в свой список – он будет доступен в отдельной вкладке. Списком можно делиться с друзьями или использовать одному. '/>
           <Language/>
         </div>
       </div>

@@ -75,13 +75,13 @@ input {
   transition: 0.2s;
   height: 42px;
 }
+.search:hover {
+  box-shadow: 0px 0px 8px 0px rgba(90, 194, 233, 0.8);
+}
 .searchError {
   font-weight: 600;
   text-align: center;
   padding: 20px;
-}
-.search.shown {
-  box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.04);
 }
 .searchSvg {
   padding: 17px 11px 12px 27px;
@@ -92,6 +92,7 @@ input {
   align-items: center;
   overflow: hidden;
   border-radius: 10px;
+  transition: 0.3s;
 }
 .searchInput input {
   font-size: 1.4em;
@@ -129,7 +130,8 @@ input {
 
 /* info button */
 .info {
-  padding: 0 20px;
+  padding: 10px 20px;
+  position: relative;
 }
 .infoText {
   border-radius: 50%;
@@ -141,6 +143,30 @@ input {
   width: 20px;
   height: 20px;
   align-self: flex-start;
+  cursor: pointer;
+}
+.infoText:hover {
+  color: rgb(90, 194, 233);
+  border-color: rgb(90, 194, 233);
+}
+.infoBlock {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 33px 40px;
+  width: 450px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.3s;
+}
+.infoBlock.shown {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: auto;
 }
 
 /* language */
@@ -190,7 +216,7 @@ input {
   border-bottom: 1px solid #D9D9D9;
   transition: 0.3s;
 }
-.languageAllLang:hover {
+.languageAllLang:hover, .languageAllLangActive {
   background: #D9D9D9;
 }
 .languageAllLang:last-child {

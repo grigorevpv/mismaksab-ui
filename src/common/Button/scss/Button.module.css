@@ -8,11 +8,16 @@
   font-size: 20px;
   display: inline-block;
   height: 44px;
-}
-.button:hover {
-  box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.04);
+  white-space: nowrap;
 }
 .button.yellow {
   background: #EAD700;
   color: #373F41;
+}
+.button.yellow:hover {
+  box-shadow: 0px 0px 8px 0px rgba(90, 194, 233, 0.8);
+}
+.button.yellow:active {
+  background: var(--dark-dark-yellow, #AC9E00);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2) inset;
 }/*# sourceMappingURL=Button.module.css.map */
