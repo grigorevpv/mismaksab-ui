@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700&display=swap");
+body {
+  font-family: "Jost", sans-serif;
+  color: #373F41;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.spinner {
+  display: inline-block;
+  width: 100%;
+}
+.spinner:after {
+  content: " ";
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 16px auto;
+  border-radius: 50%;
+  border: 6px solid grey;
+  border-color: grey transparent grey transparent;
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.goodCard {
+  position: relative;
+  min-height: 350px;
+  width: 170px;
+  border-radius: 10px;
+  margin: 5px;
+  border: 1px solid #D9D9D9;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+}
+.goodCard:hover {
+  box-shadow: 0px 0px 7px 0px rgba(90, 194, 233, 0.8);
+}
+.goodCard.disabled {
+  pointer-events: none;
+}
+.goodCardAdd {
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  background: #F9EB4F;
+  width: 35px;
+  height: 35px;
+  border-bottom-left-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+.goodCardAdd.added {
+  background: #D8EBF8;
+}
+.goodCardImage {
+  position: relative;
+  height: 50%;
+  text-align: center;
+}
+.goodCardImage img {
+  max-width: 170px;
+  max-height: 100%;
+}
+.goodCard .info {
+  margin: 0 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 7px;
+  border: 1px solid #499F53;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 45px;
+}
+.goodCard .infoDiscount {
+  font-size: 14px;
+  font-weight: 700;
+  background: #499F53;
+  color: white;
+  padding: 0 5px;
+}
+.goodCard .infoMarket {
+  width: 23px;
+  margin: 0 auto;
+  padding: 2px 0;
+}
+.goodCardTextWrapper {
+  padding: 10px;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+}
+.goodCardTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  flex-grow: 3;
+  color: #373F41;
+}
+.goodCardTitle:hover {
+  text-decoration: underline;
+  color: rgb(90, 194, 233);
+}
+.goodCard .prices {
+  display: flex;
+  align-items: center;
+}
+.goodCard .pricesCurrent {
+  font-size: 20px;
+  font-weight: 700;
+  padding-right: 10px;
+}
+.goodCard .pricesOld {
+  color: #6D6D6D;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+.goodCardPricePerKilo, .goodCardDiscountUntil {
+  margin: 0;
+  margin-top: 5px;
+  color: #6D6D6D;
+  font-size: 14px;
+  font-weight: 400;
+}
+.goodCard.disabled {
+  pointer-events: none;
+}
+.goodCard.disabled .pricesCurrent, .goodCard.disabled .pricesOld, .goodCard.disabled .goodCardTitle, .goodCard.disabled .goodCardPricePerKilo, .goodCard.disabled .goodCardDiscountUntil {
+  color: #D9D9D9;
+}
+.goodCard.disabled .goodCardAdd {
+  background: #D9D9D9;
+}
+.goodCard.disabled .info {
+  border-color: #D9D9D9;
+}
+.goodCard.disabled .infoDiscount {
+  background: #D9D9D9;
+}/*# sourceMappingURL=GoodCard.module.css.map */
