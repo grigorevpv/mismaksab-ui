@@ -1,5 +1,5 @@
 import React, {useRef, useState, useCallback} from 'react';
-import styles from './../scss/Header.module.css';
+import styles from './../scss/Header.scss';
 import languageSvg from './../../../assets/icons/language.svg';
 import classnames from 'classnames';
 import useOutsideClick from '../../../hooks/useOutsideClick';

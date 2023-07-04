@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './../scss/Header.module.css';
+import styles from './../scss/Header.scss';
 import searchSvg from './../../../assets/icons/search.svg';
 import classnames from 'classnames';
 import debounce from "lodash" // не получилось

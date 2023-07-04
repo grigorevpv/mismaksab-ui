@@ -1,5 +1,4 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
-import { Configuration } from "webpack";
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -18,7 +17,7 @@ const config: StorybookConfig = {
   staticDirs: ["../public"],
   webpackFinal: async (config) => {
     config.module!.rules!.push({
-      test: /\.(pcss)$/,
+      test: /\.(scss)$/,
       use: [
           { loader: "style-loader" },
           { loader: "css-modules-typescript-loader" },
@@ -32,7 +31,7 @@ const config: StorybookConfig = {
                   importLoaders: 1,
               },
           },
-          { loader: "postcss-loader", options: { sourceMap: true } },
+          { loader: "sass-loader", options: { sourceMap: true } },
       ],
     });
 

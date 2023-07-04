@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './../scss/Header.module.css';
+import styles from './../scss/Header.scss';
 
 export default function Info() {
   return (
