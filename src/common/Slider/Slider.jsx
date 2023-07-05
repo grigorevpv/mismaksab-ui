@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback} from 'react'
 import styles from './scss/Slider.module.css';
 import classnames from 'classnames';
+import { flushSync } from 'react-dom';
 
 // arrow svg
 import arrowSvg from './../../assets/icons/slider_arrow.svg';
@@ -26,32 +27,51 @@ export function Slider() {
   
   const sliderBox = useRef(null); //slides wrapper
 
-  // get slide and slider box width
-  useEffect(() => {
+  // set widths function
+  function setWidths() {
     setOffsetWidth({
       sliderBox: sliderBox.current.offsetWidth,
       allSlides: sliderBox.current.children[0].offsetWidth
     });
-  },[slides])
+  }
 
   // custom fetch hook
   const [isDataLoading, dataError] = useLoader(async() => {
     const ajaxResult = await GoodsService.get(GET_GOODS_LIMIT);
-    setSlides(ajaxResult.data);
+    flushSync(async () => {
+      setSlides(ajaxResult.data);
+    })
+
+    setWidths()
+    window.addEventListener('resize', setWidths);
+
+    return () => {
+      window.removeEventListener('resize', setWidths);
+    }
   }, [])
 
+  console.log(offsetWidth);
   // change visibility of slider buttons
   useEffect(() => {
-    offset === 0 ? setIsPrevBtnShown(false): setIsPrevBtnShown(true); //show or disable prev slide button
+    offset >= 0 ? setIsPrevBtnShown(false): setIsPrevBtnShown(true); //show or disable prev slide button
     offsetWidth.allSlides + offset - offsetWidth.sliderBox > 0 ? setIsNextBtnShown(true): setIsNextBtnShown(false); //show or disable next slide button
   }, [offsetWidth, offset]);
 
   const handleNextSlide = useCallback(() => {
-    setOffset(offset - offsetWidth.sliderBox);
-  },[offset, offsetWidth.sliderBox]);
+    let newOffset = offset - offsetWidth.sliderBox;
+    const maxOffset = -Math.abs(offsetWidth.allSlides - offsetWidth.sliderBox); //max possible offset to right elem
+    // scroll to ending
+    if (newOffset < maxOffset) newOffset = maxOffset; //number are negative, so <
+
+    setOffset(newOffset);
+  },[offset, offsetWidth]);
 
   const handlePrevSlide = useCallback(() => {
-    setOffset(offset + offsetWidth.sliderBox);
+    let newOffset = offset + offsetWidth.sliderBox;
+    // scroll to beginning
+    if (newOffset > 0) newOffset = 0;
+
+    setOffset(newOffset);
   },[offset, offsetWidth.sliderBox]);
 
   return (
