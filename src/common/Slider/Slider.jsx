@@ -50,7 +50,6 @@ export function Slider() {
     }
   }, [])
 
-  console.log(offsetWidth);
   // change visibility of slider buttons
   useEffect(() => {
     offset >= 0 ? setIsPrevBtnShown(false): setIsPrevBtnShown(true); //show or disable prev slide button
