@@ -48,11 +48,12 @@ input {
   }
 }
 .slider {
-  max-width: 920px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 10px;
   position: relative;
   display: flex;
+  box-sizing: content-box;
 }
 .sliderBox {
   overflow: hidden;
@@ -91,4 +92,10 @@ input {
 }
 .sliderButton.next .sliderButtonArrow {
   left: 0;
+}
+
+@media screen and (max-width: 568px) {
+  .slider {
+    max-width: 360px;
+  }
 }/*# sourceMappingURL=Slider.module.css.map */

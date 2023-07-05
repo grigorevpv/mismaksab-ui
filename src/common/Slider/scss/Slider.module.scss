@@ -1,11 +1,12 @@
 @import "../../../scss/common.module.scss";
 
 .slider {
-    max-width: 920px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 10px;
     position: relative;
     display: flex;
+    box-sizing: content-box;
     
     &Box {
         overflow: hidden;
@@ -55,5 +56,12 @@
                 left: 0;
             }
         }
+    }
+}
+
+
+@media screen and (max-width: 568px) {
+    .slider {
+        max-width: 360px;
     }
 }
