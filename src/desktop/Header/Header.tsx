@@ -1,31 +1,28 @@
-import React from 'react'
-import Logo from './components/Logo'
-import Info from './components/Info'
-import Language from './components/Language'
-import MyListButton from './components/MyListButton'
-import SearchBar from './components/SearchBar'
+import React from 'react';
 
-import styles from './scss/Header.scss' //tsx не работают стили!!!
+import styles from './Header.scss';
 
 interface Props {
-  suggestItems: string[];
-  listItemsCount: number;
-  selectedLanguage: string;
-  onSearchChange: (searchText: string) => void;
-  onLanguageChange: (selectedLanguage: string) => void;
+  info: React.ReactElement;
+  logo: React.ReactElement;
+  searchBar: React.ReactElement;
+  languages: React.ReactElement;
+  myListButton: React.ReactElement;
 }
 
-export function Header() {
+export function Header({ info, logo, searchBar, myListButton, languages }: Props) {
   return (
     <nav className={styles.navBar}>
       <div className={styles.navBarContent}>
-        <Logo/>
+        {logo}
         
         <div className={styles.navBarControls}>
-          <SearchBar/>
-          <MyListButton/>
-          <Info/>
-          <Language/>
+          {searchBar}
+          {myListButton}
+          <div className={styles.info}>
+            {info}
+          </div>
+          {languages}
         </div>
       </div>
     </nav>

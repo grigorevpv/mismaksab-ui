@@ -3,13 +3,6 @@
 interface CssExports {
   'info': string;
   'infoText': string;
-  'language': string;
-  'languageAll': string;
-  'languageAllLang': string;
-  'languageCurrent': string;
-  'languageCurrentLang': string;
-  'logo': string;
-  'logoText': string;
   'navBar': string;
   'navBarContent': string;
   'navBarControls': string;
@@ -22,9 +15,6 @@ interface CssExports {
   'searchResultsWrapper': string;
   'searchSvg': string;
   'shown': string;
-  'subTitle': string;
-  'svg': string;
-  'title': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
