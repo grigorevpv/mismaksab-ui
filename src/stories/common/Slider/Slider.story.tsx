@@ -1,9 +1,9 @@
 import React from "react";
-import Slider from '../../../common/Slider/Slider';
+import Slider from "../../../common/Slider/Slider";
 
 
-export const SliderStory = () => {
+export const SliderStory = () => (
   <Slider/>
-}
+);
 
-SliderStory.storyName = 'Slider';
+SliderStory.storyName = "Header";

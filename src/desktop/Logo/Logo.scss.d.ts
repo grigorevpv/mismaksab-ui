@@ -3,6 +3,8 @@
 interface CssExports {
   'logo': string;
   'logoText': string;
+  'rotate': string;
+  'spinner': string;
   'subTitle': string;
   'title': string;
 }

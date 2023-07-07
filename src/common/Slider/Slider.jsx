@@ -1,22 +1,136 @@
 import React, { useState, useEffect, useRef, useCallback} from 'react'
+import { flushSync } from 'react-dom';
 import styles from './Slider.scss';
 import classnames from 'classnames';
-import { flushSync } from 'react-dom';
 
 // arrow svg
 import arrowSvg from './../../assets/icons/slider_arrow.svg';
-
-// fetch hook
-import useLoader from '../../hooks/useLoader';
-import GoodsService from '../../API/GoodsService';
-
+// good card
 import { GoodCard } from '../GoodCard/GoodCard';
 
-
-const GET_GOODS_LIMIT = 10;
+const slidesData = [{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+},
+{
+  imageURL:'https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg',
+  discount:'21',
+  market:'selver',
+  price:'4.29',
+  oldPrice:'5.49',
+  title:'Корм собачий ORLANDO GOURVE, 3 кг',
+  pricePerKilo:'1.43',
+  discountUntil:'15.04',
+  isDisabled: false
+}]
 
 export default function Slider() {
-  const [slides, setSlides] = useState([]);
+  const [slides, setSlides] = useState(slidesData);
   const [offset, setOffset] = useState(0);
   const [isPrevBtnShown, setIsPrevBtnShown] = useState(false);
   const [isNextBtnShown, setIsNextBtnShown] = useState(false);
@@ -35,13 +149,22 @@ export default function Slider() {
     });
   }
 
+  // вот это функция для ajax запроса и отображения слайдов
   // custom fetch hook
-  const [isDataLoading, dataError] = useLoader(async() => {
-    const ajaxResult = await GoodsService.get(GET_GOODS_LIMIT);
-    flushSync(async () => {
-      setSlides(ajaxResult.data);
-    })
+  // const [isDataLoading, dataError] = useLoader(async() => {
+  //   const ajaxResult = await GoodsService.get(GET_GOODS_LIMIT);
+  //   flushSync(async () => {
+  //     setSlides(ajaxResult.data);
+  //   })
 
+  //   setWidths()
+  //   window.addEventListener('resize', setWidths);
+
+  //   return () => {
+  //     window.removeEventListener('resize', setWidths);
+  //   }
+  // }, [])
+  useEffect(() => {
     setWidths()
     window.addEventListener('resize', setWidths);
 
@@ -81,9 +204,9 @@ export default function Slider() {
           className={styles.sliderSlides}
           style={{transform: `translateX(${offset}px)`}}
         >
-          {slides.map(slide =>
-            <GoodCard key={slide.id}
-              i={slide.id} //delete it after
+          {slides.map((slide, i) =>
+            <GoodCard key={i} //когда появятся реальные данные исправить i на id
+              i={i} //delete it after
               imageURL='https://www.selver.ee/img/800/800/resize/4/7/4740125000108.jpg'
               discount='21'
               market='selver'

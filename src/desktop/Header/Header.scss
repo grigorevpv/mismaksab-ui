@@ -114,7 +114,7 @@ input {
             line-height: 50px;
             padding: 0 15px;
             transition: .3s;
-            color:$greyColor;
+            color:$fontBlack;
 
             &:hover {
                 background:$borderColor;
@@ -132,7 +132,7 @@ input {
     &Text {
         border-radius:50%;
         border: 1px solid $borderColor;
-        color:$greyColor;
+        color:$fontBlack;
         display: flex;
         align-items: center;
         justify-content: center;

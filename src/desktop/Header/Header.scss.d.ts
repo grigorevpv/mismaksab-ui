@@ -15,6 +15,7 @@ interface CssExports {
   'searchResultsWrapper': string;
   'searchSvg': string;
   'shown': string;
+  'spinner': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

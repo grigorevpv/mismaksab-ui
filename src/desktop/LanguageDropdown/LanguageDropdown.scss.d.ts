@@ -8,6 +8,7 @@ interface CssExports {
   'languageCurrentLang': string;
   'rotate': string;
   'shown': string;
+  'spinner': string;
   'svg': string;
 }
 export const cssExports: CssExports;

@@ -2,6 +2,8 @@
 // Please do not change this file!
 interface CssExports {
   'infoText': string;
+  'rotate': string;
+  'spinner': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

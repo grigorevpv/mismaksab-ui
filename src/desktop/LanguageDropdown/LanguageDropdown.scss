@@ -5,7 +5,7 @@
 
     .languageCurrent {
         cursor: pointer;
-        color: $greyColor;
+        color: $fontBlack;
         font-size: 1.1em;
         text-transform: uppercase;
         display: flex;
@@ -53,7 +53,7 @@
         // languages items
         .languageAllLang {
             text-transform: uppercase;
-            color:$greyColor;
+            color:$fontBlack;
             padding: 5px;
             border-bottom:1px solid $borderColor;
             transition: .3s;
