@@ -28,4 +28,6 @@ $RECYCLE.BIN/
 
 # Misc
 node_modules/
+lib/
 dist/
+storybook-static/

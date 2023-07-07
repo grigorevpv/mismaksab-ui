@@ -1,0 +1,149 @@
+@import "../../scss/variables.scss";
+
+.goodCard {
+    position: relative;
+    min-height: 350px;
+    width: 170px;
+    border-radius: 10px;
+    margin: 5px;
+    border: 1px solid $fontLightGrey;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: .3s;
+
+    &:hover {
+        box-shadow: 0px 0px 7px 0px rgba(90, 194, 233, 0.80);;
+    }
+    
+
+    &.disabled {
+        pointer-events: none;
+    }
+
+    &Add {
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        background: $mainYellow;
+        width: 35px;
+        height: 35px;
+        border-bottom-left-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 10;
+
+        &.added {
+            background: $darkBlue;
+        }
+    }
+
+    &Image {
+        position: relative;
+        height: 50%;
+        text-align: center;
+
+        img {
+            max-width: 170px;
+            max-height: 100%;
+        }
+    }
+
+    .info {
+        margin: 0 10px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: 7px;
+        border: 1px solid $mainGreen;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-width: 45px;
+
+        &Discount {
+            font-size: 14px;
+            font-weight: 700;
+            background: $mainGreen;
+            color:white;
+            padding: 0 5px;
+        }
+
+        &Market {
+            width: 23px;
+            margin: 0 auto;
+            padding: 2px 0;
+        }
+    }
+
+    &TextWrapper {
+        padding: 10px;
+        flex-grow: 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &Title {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+        flex-grow: 3;
+        color: $fontBlack;
+
+        &:hover {
+            text-decoration: underline;
+            color: $lightBlueColor;
+        }
+    }
+
+    .prices {
+        display: flex;
+        align-items: center;
+
+        &Current {
+            font-size: 20px;
+            font-weight: 700;
+            padding-right: 10px;
+        }
+
+        &Old {
+            color: $fontGrey;
+            font-size: 16px;
+            font-weight: 400;
+            text-decoration:line-through;
+        }
+    }
+
+    &PricePerKilo, &DiscountUntil {
+        margin: 0;
+        margin-top: 5px;
+        color: $fontGrey;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    // disabled
+    &.disabled {
+        pointer-events: none;
+
+        .pricesCurrent, .pricesOld, .goodCardTitle, .goodCardPricePerKilo, .goodCardDiscountUntil {
+            color:$fontLightGrey;
+        }
+
+        .goodCardAdd {
+            background: $fontLightGrey;
+        }
+
+        .info {
+            border-color:$fontLightGrey;
+
+            &Discount {
+                background: $fontLightGrey;
+            }
+        }
+    }
+}

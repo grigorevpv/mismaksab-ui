@@ -1,0 +1,21 @@
+@import "../../scss/variables.scss";
+
+.slider {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    box-sizing: content-box;
+
+    &Box {
+        overflow: hidden;
+    }
+}
+
+
+@media screen and (max-width: 568px) {
+    .slider {
+        max-width: 360px;
+    }
+}

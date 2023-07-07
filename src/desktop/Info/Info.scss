@@ -1,0 +1,13 @@
+@import "../../scss/variables.scss";
+
+.infoText {
+    border-radius:50%;
+    border: 1px solid $borderColor;
+    color: $fontBlack;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    align-self:flex-start;
+}

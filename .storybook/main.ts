@@ -15,5 +15,27 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   staticDirs: ["../public"],
+  webpackFinal: async (config) => {
+    config.module!.rules!.push({
+      test: /\.(scss)$/,
+      use: [
+          { loader: "style-loader" },
+          { loader: "css-modules-typescript-loader" },
+          {
+              loader: "css-loader",
+              options: {
+                  modules: {
+                      localIdentName: "[name]__[local]--[hash:base64:5]",
+                  },
+                  sourceMap: true,
+                  importLoaders: 1,
+              },
+          },
+          { loader: "sass-loader", options: { sourceMap: true } },
+      ],
+    });
+
+    return config;
+  }
 };
 export default config;

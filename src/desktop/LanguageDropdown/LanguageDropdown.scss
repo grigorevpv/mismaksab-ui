@@ -1,0 +1,70 @@
+@import "../../scss/variables.scss";
+
+.language {
+    position: relative;
+
+    .languageCurrent {
+        cursor: pointer;
+        color: $fontBlack;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+
+        .languageCurrentLang {
+            padding-right: 5px;
+        }
+
+        .svg {
+            display: flex;
+            align-items: center;
+            transition: .3s;
+        }
+
+        .rotate {
+            transform:rotate(180deg);
+        }
+    }
+
+    // all languages dropdown
+    .languageAll {
+        position: absolute;
+        right: 0;
+        left:0;
+        top: calc(100% + 5px);
+        background: white;
+        border: 1px solid $borderColor;
+        border-radius: 10px;
+        text-align: center;
+        overflow: hidden;
+    
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: .3s;
+
+        // shown
+        .shown {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto
+        }
+
+        // languages items
+        .languageAllLang {
+            text-transform: uppercase;
+            color:$fontBlack;
+            padding: 5px;
+            border-bottom:1px solid $borderColor;
+            transition: .3s;
+            
+            &:hover {
+                background: $borderColor;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
