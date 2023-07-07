@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import selverPng from './../../assets/icons/selver.png'; // как отображать другие
 import addedToListSvg from './../../assets/icons/card_added.svg';
 
-export function GoodCard({
+export default function GoodCard({
     i,
     imageURL,
     discount,

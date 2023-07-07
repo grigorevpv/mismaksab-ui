@@ -1,0 +1,9 @@
+@import "../../scss/variables.scss";
+
+.slider {
+  &Slides {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    transition: .3s;
+  }
+}

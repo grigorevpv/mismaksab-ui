@@ -2,8 +2,7 @@
 // Please do not change this file!
 interface CssExports {
   'rotate': string;
-  'slider': string;
-  'sliderBox': string;
+  'sliderSlides': string;
   'spinner': string;
 }
 export const cssExports: CssExports;
